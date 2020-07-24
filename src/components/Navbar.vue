@@ -1,6 +1,6 @@
 <template>
-    <v-container>
-        <v-layout>
+    <v-container class="nav">
+        <v-layout class="tabs">
             <v-tab @click="pushTop">Top</v-tab>
             <v-spacer></v-spacer>
             <v-tab @click="pushAbout">about</v-tab>
@@ -12,6 +12,13 @@
 
 
 <style>
+.nav {
+    height:80px;
+}
+
+.tabs {
+    height:100%;
+}
 </style>
 
 <script>
