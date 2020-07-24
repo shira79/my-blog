@@ -1,24 +1,9 @@
-# my-blog
+たまにみるポートフォリオサイトみたいなのを作ってみたい。
+https://shlia.netlify.app/
 
-## Project setup
-```
-yarn install
-```
+- vue.js
+- vue-router(SPA構築)
+- vuetify(UIフレームワーク)
+- netlify（デプロイ）
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+そのうちcontentful(APIファーストなCMS)も使いたい。
