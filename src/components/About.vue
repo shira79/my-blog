@@ -6,18 +6,21 @@
         <span class="pt-4">this is my friend's illustration</span>
       </v-flex>
       <v-flex md8 xs12 class="pl-10 about-text">
-        <v-col>##ABOUT ME</v-col>
-        {{text}}
+          <div v-html="text"></div>
       </v-flex>
   </v-row>
 </v-container>
 </template>
 
 <script>
+
+import marked from 'marked'
+
  export default {
     data:function(){
+      var text = "### ABOUT ME\nMy name is Shirakawa.  I am a web developer.  Now I study PHP,Laravel,AWS.\n#### Resume\n- 2020/04 join\n- 2020/05 test"
       return {
-        text: "The Autumn SongSummer time is gone I miss it so mucMy board lies in my garageWaiting for the snowy seasonAnd again I would slide\nFriends are alright There's nothing so sadAnd foods are good todayIt looks like thing are going rightBut I feel I'm all alone"
+        text: marked(text),
       }
     },
   }
