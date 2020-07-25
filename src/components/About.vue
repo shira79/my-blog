@@ -9,12 +9,14 @@
           <div v-html="text"></div>
       </v-flex>
   </v-row>
+  
 </v-container>
 </template>
 
 <script>
 
 import marked from 'marked'
+import ContentfulAdapter from '../contentful.js'
 
  export default {
     data:function(){
@@ -23,6 +25,29 @@ import marked from 'marked'
         text: marked(text),
       }
     },
+    methods:{
+      test(){
+        ContentfulAdapter.getAllData()
+          .then(function (entry) {
+            console.log(entry);
+          })
+        ContentfulAdapter.getAbout()
+        .then(function (entry) {
+          console.log("aboutをとりたい");
+            console.log(entry);
+          })
+
+          ContentfulAdapter.getProjects()
+        .then(function (entry) {
+          console.log("projectをとりたい");
+            console.log(entry);
+          })
+
+      }
+    },
+    mounted() {
+       this.test();
+  },
   }
 </script>
 

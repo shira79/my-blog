@@ -16,3 +16,5 @@ https://shlia.netlify.app/
 - npm install -D vue-router
 - npm install -D vuetify
 - npm install -D marked
+- npm install -D contentful-cli
+- npm install --save contentful
