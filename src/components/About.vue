@@ -1,22 +1,22 @@
 <template>
-<div>
-  <v-container class="page">
-      <v-col>{{name}}</v-col>
-      <v-col>{{ronaName}}</v-col>
-      <v-col v-html=description></v-col>
-      <v-layout v-for="link in links" :key=link.name>
-        {{link.fields.fontAwesomeIcon}}
-        {{link.fields.url}}
-      </v-layout>
-  </v-container>
-  <Aboutpage
-    v-for="page in pages"
-    :key="page.fields.title"
-    :content="page.fields">
-  </Aboutpage>
+  <div>
+    <v-container class="page">
+        <v-col>{{name}}</v-col>
+        <v-col>{{ronaName}}</v-col>
+        <v-col v-html=description></v-col>
+        <v-layout v-for="link in links" :key=link.name>
+          <a :href="link.fields.url" target = "_blank">
+            <v-icon>mdi-{{link.fields.fontAwesomeIcon}}</v-icon>
+          </a>
+        </v-layout>
+    </v-container>
+    <Aboutpage
+      v-for="page in pages"
+      :key="page.fields.title"
+      :content="page.fields">
+    </Aboutpage>
 
-</div>
-
+  </div>
 </template>
 
 <script>
