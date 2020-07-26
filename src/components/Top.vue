@@ -1,15 +1,36 @@
 <template>
   <v-container class = "top-box">
     <div class="text">
-      <v-col class = "greeting">HELLO, MY FRIEND.</v-col>
-    <v-col class = "message">This is Shirakawa's website made by vue.js & vuetify & vue-router & netlify</v-col>
+      <v-col class = "greeting">{{greeting}}</v-col>
+    <v-col class = "message">{{message}}</v-col>
     </div>
   </v-container>
 </template>
 
 <script>
+import ContentfulAdapter from '../contentful.js'
+
 export default {
   name: 'Top',
+  data: function(){
+    return {
+      greeting: null,
+      message: null,
+    }
+  },
+  created :function(){
+    this.setData();
+  },
+  methods:{
+    setData(){
+      var vm = this;
+      ContentfulAdapter.getTop()
+        .then(function (entry) {
+          vm.greeting = entry.fields.title;
+          vm.message = entry.fields.description;
+        })
+    }
+  }
 }
 </script>
 

@@ -1,58 +1,66 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-flex md4 xs12>
-        <img src="../assets/profile1.png" alt="profile1" class="about-image">
-        <span class="pt-4">this is my friend's illustration</span>
-      </v-flex>
-      <v-flex md8 xs12 class="pl-10 about-text">
-          <div v-html="text"></div>
-      </v-flex>
-  </v-row>
-  
-</v-container>
+<div>
+  <v-container class="page">
+      <v-col>{{name}}</v-col>
+      <v-col>{{ronaName}}</v-col>
+      <v-col v-html=description></v-col>
+      <v-layout v-for="link in links" :key=link.name>
+        {{link.fields.fontAwesomeIcon}}
+        {{link.fields.url}}
+      </v-layout>
+  </v-container>
+  <Aboutpage
+    v-for="page in pages"
+    :key="page.fields.title"
+    :content="page.fields">
+  </Aboutpage>
+
+</div>
+
 </template>
 
 <script>
 
 import marked from 'marked'
 import ContentfulAdapter from '../contentful.js'
+import Aboutpage from './AboutPage'
 
  export default {
+    components: { Aboutpage },
     data:function(){
-      var text = "### ABOUT ME\nMy name is Shirakawa.  I am a web developer.  Now I study PHP,Laravel,AWS.\n#### Resume\n- 2020/04 join\n- 2020/05 test"
       return {
-        text: marked(text),
+        name :"",
+        ronaName:"",
+        description:"",
+        links:[],
+        pages:[],
       }
     },
     methods:{
-      test(){
-        ContentfulAdapter.getAllData()
+      setData(){
+        var vm = this;
+        ContentfulAdapter.getAboutMe()
           .then(function (entry) {
-            console.log(entry);
+            vm.name        =  entry.fields.name;
+            vm.ronaName    =  entry.fields.romaName;
+            vm.description = marked(entry.fields.description);
+            vm.links       =  entry.fields.links;
+            vm.pages    =  entry.fields.pages;
           })
-        ContentfulAdapter.getAbout()
-        .then(function (entry) {
-          console.log("aboutをとりたい");
-            console.log(entry);
-          })
-
-          ContentfulAdapter.getProjects()
-        .then(function (entry) {
-          console.log("projectをとりたい");
-            console.log(entry);
-          })
-
       }
     },
-    mounted() {
-       this.test();
-  },
+    created :function(){
+      this.setData();
+    },
   }
 </script>
 
 <style scoped>
 
+
+.page {
+  height:100vh;
+}
 
 .about-image {
   width:100%;
