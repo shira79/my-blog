@@ -8,17 +8,14 @@ class ContentfulAdapter {
     });
   }
 
-  async getAllData() {
-    return this.client.getEntries();
+  getTop(){
+    return this.client.getEntry('4OnpxVgQFBiX8lgvVGfyL4');
   }
 
-  async getAbout(){
-    return this.client.getEntry('6Y7EIx73nUCWuoIWcsuM00');
+  getAboutMe(){
+    return this.client.getEntry('1FrXSeuQRry6jFapXaZZcv');
   }
 
-  async getProjects(){
-      return this.client.getEntries({content_type: "project"});
-  }
 }
 
-export default new ContentfulAdapter(); //Singleton
+export default new ContentfulAdapter();
