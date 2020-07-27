@@ -1,15 +1,14 @@
 <template>
   <div>
-    <v-container class="page">
-        <v-col>{{name}}</v-col>
-        <v-col>{{ronaName}}</v-col>
-        <v-col v-html=description></v-col>
-        <v-layout v-for="link in links" :key=link.name>
-          <a :href="link.fields.url" target = "_blank">
+    <v-container class="aboutme" xs=10>
+      <h1>ABOUT</h1>
+        <v-col>{{name}}   {{ronaName}}</v-col>
+        <v-col>
+          <a v-for="link in links" :key=link.name :href="link.fields.url" target = "_blank">
             <v-icon>mdi-{{link.fields.fontAwesomeIcon}}</v-icon>
-          </a>
-        </v-layout>
-    </v-container>
+          </a></v-col>
+        <v-col v-html=description></v-col>
+      </v-container>
     <Aboutpage
       v-for="page in pages"
       :key="page.fields.title"
@@ -58,8 +57,10 @@ import Aboutpage from './AboutPage'
 <style scoped>
 
 
-.page {
-  height:100vh;
+.aboutme{
+  min-height:100vh;
+  max-width:800px;
+  text-align:left;
 }
 
 .about-image {
