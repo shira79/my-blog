@@ -16,6 +16,17 @@ class ContentfulAdapter {
     return this.client.getEntry('1FrXSeuQRry6jFapXaZZcv');
   }
 
+  getBlogs(){
+    return this.client.getEntries({
+      'content_type': 'blog'
+    })
+  }
+
+  getBlog(id){
+    return this.client.getEntry(id);
+  }
+
+
 }
 
 export default new ContentfulAdapter();

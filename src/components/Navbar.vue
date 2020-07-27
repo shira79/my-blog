@@ -31,7 +31,7 @@ export default {
                 this.$router.push('/about');
             },
             pushBlog(){
-                this.$router.push('/blog');
+                this.$router.push('/blog/index');
             },
             pushContact(){
                 this.$router.push('/contact');
