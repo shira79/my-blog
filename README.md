@@ -7,8 +7,7 @@ https://shlia.netlify.app/
 - vue-router(SPA構築)
 - vuetify(UIフレームワーク)
 - netlify（デプロイ）
-
-そのうちcontentful(APIファーストなCMS)も使いたい。
+- contentful(CMS)
 
 
 ## インストールしたの

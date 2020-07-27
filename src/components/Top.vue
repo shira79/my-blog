@@ -36,7 +36,7 @@ export default {
 
 <style>
 .top-box {
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   text-align: center;
 
    position: relative;

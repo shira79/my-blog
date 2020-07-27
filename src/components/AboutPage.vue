@@ -1,6 +1,6 @@
 <template>
     <v-container class="page about-page">
-      <v-col>{{content.title}}</v-col>
+      <h2>{{content.title}}</h2>
       <v-col v-html=compileMarkdown(content.body)></v-col>
     </v-container>
 </template>
@@ -24,14 +24,13 @@ import marked from 'marked'
             return marked(text)
         }
     },
-    created :function(){
-      console.log(this.content);
-    },
+    created :function(){},
   }
 </script>
 
 <style scoped>
 .about-page{
+    max-width:800px;
     text-align:left;
 }
 
