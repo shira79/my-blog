@@ -1,5 +1,5 @@
 <template>
-  <v-container class = "top-box">
+  <v-container class = "top">
     <div class="text">
       <v-col class = "greeting">{{greeting}}</v-col>
     <v-col class = "message">{{message}}</v-col>
@@ -35,11 +35,10 @@ export default {
 </script>
 
 <style>
-.top-box {
+.top {
   min-height: calc(100vh - 80px);
   text-align: center;
-
-   position: relative;
+  position: relative;
 }
 
 .text {

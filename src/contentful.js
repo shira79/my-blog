@@ -22,10 +22,9 @@ class ContentfulAdapter {
     })
   }
 
-  getBlog(id){
+  getEntryById(id){
     return this.client.getEntry(id);
   }
-
 
 }
 

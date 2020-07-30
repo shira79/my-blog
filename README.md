@@ -8,6 +8,7 @@ https://shlia.netlify.app/
 - vuetify(UIフレームワーク)
 - netlify（デプロイ）
 - contentful(CMS)
+-  marked(markdown描画)
 
 
 ## インストールしたの
@@ -18,3 +19,4 @@ https://shlia.netlify.app/
 - npm install -D contentful-cli(多分いらなかった)
 - npm install --save contentful
 - npm install @mdi/font -D
+- npm install -D github-markdown-css
