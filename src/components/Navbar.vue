@@ -14,6 +14,7 @@
 <style>
 .nav {
     height:80px;
+    /* position: fixed; */
 }
 
 .tabs {
@@ -23,21 +24,21 @@
 
 <script>
 export default {
-        methods:{
-            pushTop(){
-                this.$router.push('/');
-            },
-            pushAbout(){
-                this.$router.push('/about');
-            },
-            pushBlog(){
-                this.$router.push('/blog/index');
-            },
-            pushContact(){
-                this.$router.push('/contact');
-            },
+    methods:{
+        pushTop(){
+            this.$router.push('/');
         },
-    }
+        pushAbout(){
+            this.$router.push('/about');
+        },
+        pushBlog(){
+            this.$router.push('/blog/index');
+        },
+        pushContact(){
+            this.$router.push('/contact');
+        },
+    },
+}
 
 </script>
 

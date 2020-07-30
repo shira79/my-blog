@@ -1,8 +1,9 @@
 <template>
-  <v-container class="blog">
+  <v-container class="blog-show">
+      <Loading :state="loading"></Loading>
       <v-layout column>
-          <h1>{{title}}</h1>
-          <v-col v-html=text></v-col>
+        <h2>{{title}}</h2>
+        <v-col class="markdown markdown-body" v-html=text></v-col>
       </v-layout>
   </v-container>
 </template>
@@ -11,27 +12,33 @@
 
 import ContentfulAdapter from '../contentful.js'
 import marked from 'marked'
+import Loading from './Loading.vue'
 
 export default {
-    props:{ id: String },
-    data:function(){
-      return {
-        title:"",
-        text:"",
-        slug:"",
-        publishedAt:"",
-      }
-    },
-    methods:{
-      setData(){
-        var vm = this;
-        ContentfulAdapter.getBlog(this.id)
-          .then(function (entry) {
-            vm.title =  entry.fields.title;
-            vm.text =  marked(entry.fields.text);
-            vm.slug =  entry.fields.slug;
-            vm.publishedAt =  entry.fields.publishedAt;
-          })
+  components: { Loading },
+  props:{ id: String },
+  data:function(){
+    return {
+      loading:false,
+      title:"",
+      text:"",
+      slug:"",
+      publishedAt:"",
+    }
+  },
+  methods:{
+    setData(){
+      var vm = this;
+      vm.loading =  true;
+      ContentfulAdapter.getEntryById(this.id)
+        .then(function (entry) {
+          vm.title =  entry.fields.title;
+          vm.text =  marked(entry.fields.text);
+          vm.slug =  entry.fields.slug;
+          vm.publishedAt =  entry.fields.publishedAt;
+          vm.loading =  false;
+        })
+        //todo 取得できなかった場合404を出す?
       }
     },
     created :function(){
@@ -41,8 +48,9 @@ export default {
   </script>
 
 <style scoped>
-.blog{
+.blog-show{
     text-align:left;
+    max-width:680px;
 }
 
 </style>
