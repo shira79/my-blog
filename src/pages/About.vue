@@ -3,18 +3,20 @@
     <v-container class="about" xs=10>
       <h1>ABOUT</h1>
       <Loading :state="loading"></Loading>
-        <v-col>{{name}}   {{ronaName}}</v-col>
-        <v-col>
-          <a v-for="link in links" :key=link.name :href="link.fields.url" target = "_blank">
-            <v-icon>mdi-{{link.fields.fontAwesomeIcon}}</v-icon>
-          </a></v-col>
-        <v-col class="markdown-body" v-html=description></v-col>
-        <v-col
+      <v-col>{{name}}</v-col>
+      <v-col class="markdown-body" v-html=description></v-col>
+      <v-col
         v-for="page in pages"
         :key="page.fields.title"
         class="markdown-body"
         v-html="compileMarkdown(page.fields.body)"></v-col>
-      </v-container>
+        <v-layout>
+          <v-spacer></v-spacer>
+          <a v-for="link in links" :key=link.name :href="link.fields.url" target = "_blank" class="social-link mr-2">
+            <v-icon color="#c1c1ff">mdi-{{link.fields.fontAwesomeIcon}}</v-icon>
+          </a>
+        </v-layout>
+    </v-container>
   </div>
 </template>
 
@@ -22,7 +24,7 @@
 
 import marked from 'marked'
 import ContentfulAdapter from '../contentful.js'
-import Loading from './Loading.vue'
+import Loading from '../components/Loading.vue'
 
  export default {
     components:{ Loading },
@@ -77,10 +79,15 @@ import Loading from './Loading.vue'
   white-space: pre-wrap;
 }
 
+.social-link {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 480px) {
   .about-image {
     width:100%;
   }
 }
+
 
 </style>

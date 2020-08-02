@@ -14,7 +14,7 @@
 <script>
 
 import ContentfulAdapter from '../contentful.js'
-import Loading from './Loading.vue'
+import Loading from '../components/Loading.vue'
 
 export default {
     components:{ Loading },
