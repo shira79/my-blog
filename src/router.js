@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Top  from './components/Top.vue'
-import About from './components/About.vue'
-import BlogIndex from './components/BlogIndex.vue'
-import BlogShow from './components/BlogShow.vue'
-import Contact from './components/Contact.vue'
-import NotFound from './components/NotFound.vue'
+import Top  from './pages/Top.vue'
+import About from './pages/About.vue'
+import BlogIndex from './pages/BlogIndex.vue'
+import BlogShow from './pages/BlogShow.vue'
+import Contact from './pages/Contact.vue'
+import NotFound from './pages/NotFound.vue'
 
 Vue.use(VueRouter);
 

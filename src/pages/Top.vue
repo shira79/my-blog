@@ -55,6 +55,7 @@ export default {
 .greeting {
   font-size: 60px;
   font-weight: bold;
+  color:#c1c1ff;
 }
 
 .message {

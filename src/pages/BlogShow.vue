@@ -12,7 +12,7 @@
 
 import ContentfulAdapter from '../contentful.js'
 import marked from 'marked'
-import Loading from './Loading.vue'
+import Loading from '../components/Loading.vue'
 
 export default {
   components: { Loading },
