@@ -5,6 +5,7 @@ import Top  from './pages/Top.vue'
 import About from './pages/About.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogShow from './pages/BlogShow.vue'
+import TagShow from './pages/TagShow.vue'
 import Contact from './pages/Contact.vue'
 import NotFound from './pages/NotFound.vue'
 
@@ -15,6 +16,7 @@ const routes = [
     { path: '/about', component: About },
     { path: '/blog/index', component: BlogIndex },
     { path: '/blog/:id', component: BlogShow, props: true },
+    { path: '/tag/:enName', component: TagShow, props: true },
     { path: '/contact', component: Contact },
     { path: '*', component: NotFound }
 ];

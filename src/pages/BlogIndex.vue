@@ -1,13 +1,13 @@
 <template>
   <v-container class="blogindex">
     <Loading :state="loading"></Loading>
-      <v-layout column>
-        <v-col class="blog-item" v-for="item in items" :key="item.title">
-            <h3><router-link class="blog-link" :to="item.sys.id">{{item.fields.title}}</router-link></h3>
-            <div v-if="item.fields.publishedAt">{{formatPublishedAt(item.fields.publishedAt)}}</div>
-            <div v-else> unknown</div>
-        </v-col>
-      </v-layout>
+    <v-layout column>
+      <v-col class="blog-item" v-for="item in items" :key="item.title">
+          <h3><router-link class="blog-link" :to="item.sys.id">{{item.fields.title}}</router-link></h3>
+          <Tags :tags="item.fields.tags"></Tags>
+          <PublishedAt :publishedAt="item.fields.publishedAt"></PublishedAt>
+      </v-col>
+    </v-layout>
   </v-container>
 </template>
 
@@ -15,9 +15,11 @@
 
 import ContentfulAdapter from '../contentful.js'
 import Loading from '../components/Loading.vue'
+import Tags from '../components/Tags.vue'
+import PublishedAt from '../components/PublishedAt.vue'
 
 export default {
-    components:{ Loading },
+    components:{ Loading, Tags, PublishedAt },
     data:function(){
       return {
         loading:false,
@@ -34,11 +36,6 @@ export default {
             vm.loading = false;
           })
       },
-      formatPublishedAt(date){
-        var result = date.split( 'T' );
-        return result[0]
-        //todo blogShowでも使いたいから移動する
-      }
     },
     created :function(){
       this.setData();
@@ -55,7 +52,8 @@ export default {
   border-bottom:thin solid #7f8c8d;
   text-align: left;
   color:#7f8c8d;
-  margin-bottom: 50px;
+  padding-top: 20px;
+  margin-bottom: 30px;
 }
 
 .blog-link{
