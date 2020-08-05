@@ -20,6 +20,7 @@ export default {
 
 <style>
 @import "../node_modules/github-markdown-css/github-markdown.css";
+@import "../node_modules/highlight.js/styles/github-gist.css";
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

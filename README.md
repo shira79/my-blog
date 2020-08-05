@@ -20,3 +20,4 @@ https://shlia.netlify.app/
 - npm install --save contentful
 - npm install @mdi/font -D
 - npm install -D github-markdown-css
+- npm install -D highlight.js
