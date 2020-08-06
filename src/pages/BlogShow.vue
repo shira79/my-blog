@@ -58,6 +58,11 @@ export default {
 
       this.setData();
     },
+    watch: {
+      $route () {
+        this.setData();
+      }
+  },
   }
   </script>
 

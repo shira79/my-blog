@@ -16,9 +16,36 @@ class ContentfulAdapter {
     return this.client.getEntry('1FrXSeuQRry6jFapXaZZcv');
   }
 
-  getBlogs(){
+  getBlogList(){
     return this.client.getEntries({
       'content_type': 'blog'
+    })
+  }
+
+  getTagList(){
+    return this.client.getEntries({
+      'content_type': 'tag'
+    })
+  }
+
+  getTagByEnName(enName){
+    return this.client.getEntries({
+      'content_type': 'tag',
+      "fields.enName": enName
+    })
+  }
+
+  getBlogByTagId(id){
+    return this.client.getEntries({
+      content_type: "blog",
+      "fields.tags.sys.id": id,
+    })
+  }
+
+  getBlogsByTag(enName){
+    return this.client.getEntries({
+      'content_type': 'blog',
+      "fields.tags.fields.enName": enName,
     })
   }
 
