@@ -1,8 +1,11 @@
 <template>
   <v-container class="tag-show">
       <Loading :state="loading"></Loading>
-      <h2>#{{tag.fields.jaName}}</h2>
-      <Blogs :blogs="bloglist"></Blogs>
+      <div v-if="!loading">
+        <h2>#{{tag.fields.jaName}}</h2>
+        <Blogs :blogs="bloglist"></Blogs>
+        <Pagination :current_page=page :last_page=last_page></Pagination>
+      </div>
       <h3>全部のタグ</h3>
       <Tags :tags="tagList"></Tags>
   </v-container>
@@ -14,15 +17,18 @@ import ContentfulAdapter from '../contentful.js'
 import Loading from '../components/Loading.vue'
 import Blogs from '../components/Blogs.vue'
 import Tags from '../components/Tags.vue'
+import Pagination from '../components/Pagination.vue'
 
 export default {
-  components: { Loading, Blogs, Tags},
+  components: { Loading, Blogs, Tags, Pagination},
   props:{ enName: String },
   data:function(){
     return {
         tagList:[],
         tag:[],
         bloglist:[],
+        page:1,
+        last_page:0,
         loading:false,
     }
   },
@@ -36,14 +42,18 @@ export default {
         })
         //これは非同期でいい
 
+        if(vm.$route.query.page !== undefined){
+          vm.page = Number(vm.$route.query.page);
+        }
+
         ContentfulAdapter.getTagByEnName(vm.enName)
         .then(function (entry) {
             vm.tag = entry.items[0];
 
-            ContentfulAdapter.getBlogByTagId(vm.tag.sys.id)
+            ContentfulAdapter.getBlogByTagId(vm.tag.sys.id,vm.page)
             .then(function (entry) {
-                console.log(entry.items);
                 vm.bloglist = entry.items;
+                vm.last_page = ContentfulAdapter.getLastPage(entry.total);
                 vm.loading =  false;
             })
         })

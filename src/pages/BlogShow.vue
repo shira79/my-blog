@@ -62,7 +62,7 @@ export default {
       $route () {
         this.setData();
       }
-  },
+    },
   }
   </script>
 
