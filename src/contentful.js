@@ -2,7 +2,7 @@ import { createClient } from "contentful";
 
 class ContentfulAdapter {
   constructor() {
-    this.limitNum =  4;
+    this.limitNum =  4
 
     this.client = createClient({
       space: process.env.VUE_APP_TF_SPACE_ID,
@@ -68,9 +68,9 @@ class ContentfulAdapter {
 
   getLastPage(total){
     if( (total % this.limitNum) === 0){
-      return Math.floor(total / this.limitNum);
-    };
-    return Math.floor(total / this.limitNum) + 1;
+      return Math.floor(total / this.limitNum)
+    }
+    return Math.floor(total / this.limitNum) + 1
  }
 
 }
