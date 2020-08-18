@@ -48,6 +48,13 @@ class ContentfulAdapter {
     })
   }
 
+  getBlogCountByTagId(id){
+    return this.client.getEntries({
+      content_type: "blog",
+      "fields.tags.sys.id": id,
+    })
+  }
+
   getBlogsByTag(enName){
     return this.client.getEntries({
       'content_type': 'blog',
