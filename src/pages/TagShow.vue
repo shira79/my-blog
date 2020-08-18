@@ -3,11 +3,12 @@
       <Loading :state="loading"></Loading>
       <div v-if="!loading">
         <h2>#{{tag.fields.jaName}}</h2>
+        <!-- ↑毎回取得してるのよくない -->
         <Blogs :blogs="bloglist"></Blogs>
         <Pagination :current_page=page :last_page=last_page></Pagination>
       </div>
       <h3>全部のタグ</h3>
-      <Tags :tags="tagList"></Tags>
+      <Tags :tags="tagList" :showCount="true"></Tags>
   </v-container>
 </template>
 
