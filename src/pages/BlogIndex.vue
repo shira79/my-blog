@@ -39,6 +39,9 @@ export default {
             vm.last_page = ContentfulAdapter.getLastPage(entry.total);
             vm.loading = false;
           })
+          .catch(function(){
+            alert("記事一覧が取得できませんでした");
+          })
       },
     },
     created :function(){

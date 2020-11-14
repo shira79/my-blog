@@ -1,7 +1,9 @@
 <template>
-    <router-link class = "tag-link" :to="`/tag/${tag.fields.enName}`">
-        #{{tag.fields.jaName}}<span v-if="showCount">({{count}})</span>
-    </router-link>
+    <div class="tag">
+        <router-link class = "tag-link" :to="`/tag/${tag.fields.enName}`">
+            #{{tag.fields.jaName}}<span v-if="showCount">({{count}})</span>
+        </router-link>
+    </div>
 </template>
 
 <script>
@@ -29,4 +31,22 @@ export default {
 }
 
 </script>
+
+
+<style scoped>
+.tag {
+    margin-right: 8px;
+}
+
+.tag-link{
+  color:#7f8d8e!important;
+  text-decoration: none;
+}
+
+.tag-link:hover {
+  color: #c1c1ff!important;
+  text-decoration: underline;
+}
+
+</style>
 

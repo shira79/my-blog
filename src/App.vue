@@ -49,13 +49,13 @@ export default {
   }
 }
 
-.markdown-body .highlight pre,
-  .markdown-body pre{
-    background-color: #364649;
+.markdown-body code {
+  color: #24292E!important;
+  font-weight: lighter!important;
 }
 
-.markdown-body code {
-  color:white!important;
+.markdown-body a {
+  color: #c1c1ff!important;
 }
 
 </style>
