@@ -1,6 +1,6 @@
 <template>
-    <v-layout>
-        <div class = "tag-box" v-for="tag in tags" :key="tag.enName">
+    <v-layout wrap>
+        <div v-for="tag in tags" :key="tag.enName">
           <Tag :tag=tag :showCount=showCount></Tag>
         </div>
     </v-layout>
@@ -16,16 +16,4 @@ export default {
 }
 </script>
 
-<style>
-
-.tag-link{
-  color:#7f8d8e!important;
-  text-decoration: none;
-}
-
-.tag-link:hover {
-  color: #c1c1ff!important;
-  text-decoration: underline;
-}
-
-</style>
+<style></style>

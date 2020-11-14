@@ -41,6 +41,9 @@ export default {
         .then(function (entry) {
             vm.tagList = entry.items;
         })
+        .catch(function(){
+          alert("タグの一覧が取得できませんでした");
+        })
         //これは非同期でいい
 
         if(vm.$route.query.page !== undefined){
@@ -57,6 +60,12 @@ export default {
                 vm.last_page = ContentfulAdapter.getLastPage(entry.total);
                 vm.loading =  false;
             })
+            .catch(function(){
+              alert("記事が取得できませんでした");
+            })
+        })
+        .catch(function(){
+          alert("タグ名が取得できませんでした");
         })
       }
     },

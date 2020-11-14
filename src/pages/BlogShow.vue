@@ -45,7 +45,9 @@ export default {
           vm.tags =  entry.fields.tags;
           vm.loading =  false;
         })
-        //todo 取得できなかった場合404を出す?
+        .catch(function(){
+          alert("記事が取得できませんでした");
+        })
       }
     },
     created :function(){
