@@ -31,14 +31,19 @@ export default {
   min-height: 100vh;
 }
 
+.markdown-body code {
+  background-color: transparent !important;
+}
+
+
 .v-container {
-  max-width: 680px;
+  max-width: 1100px;
 }
 
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
-  max-width: 680px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 45px;
 }

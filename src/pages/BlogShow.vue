@@ -76,10 +76,4 @@ export default {
     max-width:1100px;
 }
 
-/* @media screen and (max-width : 768px){
-    .blog-show{
-      width:90%;
-} */
-  /* } */
-
 </style>
