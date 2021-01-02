@@ -14,7 +14,6 @@
 <style>
 .nav {
     height:80px;
-    /* position: fixed; */
 }
 
 .tabs {

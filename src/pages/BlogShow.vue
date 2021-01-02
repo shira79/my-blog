@@ -2,7 +2,7 @@
   <v-container class="blog-show">
       <Loading :state="loading"></Loading>
       <v-layout column v-if="!loading">
-        <h2>{{title}}</h2>
+        <h1>{{title}}</h1>
         <Tags :tags="tags"></Tags>
         <PublishedAt :publishedAt="publishedAt"></PublishedAt>
         <v-col class="markdown markdown-body" v-html=text></v-col>
@@ -72,7 +72,14 @@ export default {
 
 .blog-show{
     text-align:left;
-    max-width:680px;
+    /* width:70%; */
+    max-width:1100px;
 }
+
+/* @media screen and (max-width : 768px){
+    .blog-show{
+      width:90%;
+} */
+  /* } */
 
 </style>
