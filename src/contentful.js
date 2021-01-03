@@ -27,6 +27,7 @@ class ContentfulAdapter {
   getBlogList(page=1){
     return this.client.getEntries({
       'content_type': 'blog',
+      'order': '-fields.publishedAt',
       limit: this.limitNum,
       skip: (page -1) * this.limitNum,
     })
@@ -49,6 +50,7 @@ class ContentfulAdapter {
     return this.client.getEntries({
       content_type: "blog",
       "fields.tags.sys.id": id,
+      'order': '-fields.publishedAt',
       limit: this.limitNum,
       skip: (page -1) * this.limitNum,
     })
@@ -58,13 +60,6 @@ class ContentfulAdapter {
     return this.client.getEntries({
       content_type: "blog",
       "fields.tags.sys.id": id,
-    })
-  }
-
-  getBlogsByTag(enName){
-    return this.client.getEntries({
-      'content_type': 'blog',
-      "fields.tags.fields.enName": enName,
     })
   }
 
