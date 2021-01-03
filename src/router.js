@@ -14,8 +14,9 @@ Vue.use(VueRouter);
 const routes = [
     { path: '/', component: Top },
     { path: '/about', component: About },
-    { path: '/blog/index', component: BlogIndex },
+    { path: '/blogs', component: BlogIndex },
     { path: '/blog/:id', component: BlogShow, props: true },
+    { path: '/blogs/:id', component: BlogShow, props: true },
     { path: '/tag/:enName', component: TagShow, props: true },
     { path: '/contact', component: Contact },
     { path: '*', component: NotFound }

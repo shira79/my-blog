@@ -7,6 +7,8 @@
         <PublishedAt :publishedAt="publishedAt"></PublishedAt>
         <v-col class="markdown markdown-body" v-html=text></v-col>
       </v-layout>
+      <Socials></Socials>
+
   </v-container>
 </template>
 
@@ -18,9 +20,10 @@ import hljs from 'highlight.js'
 import Loading from '../components/Loading.vue'
 import Tags from '../components/Tags.vue'
 import PublishedAt from '../components/PublishedAt.vue'
+import Socials from '../components/Socials.vue'
 
 export default {
-  components: { Loading, Tags, PublishedAt},
+  components: { Loading, Tags, PublishedAt, Socials},
   props:{ id: String },
   data:function(){
     return {

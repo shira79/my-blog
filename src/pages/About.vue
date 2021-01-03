@@ -2,20 +2,20 @@
   <div>
     <v-container class="about" xs=10>
       <h1>ABOUT</h1>
+      <img height="160" width="160" src="@/assets/icon.gif">
+      <img height="160" width="160" src="@/assets/icon.gif">
+      <img height="160" width="160" src="@/assets/icon.gif">
+      <img height="160" width="160" src="@/assets/icon.gif">
       <Loading :state="loading"></Loading>
-      <v-col>{{name}}</v-col>
+      <!-- <v-col>{{name}}</v-col> -->
       <v-col class="markdown-body" v-html=description></v-col>
       <v-col
         v-for="page in pages"
         :key="page.fields.title"
         class="markdown-body"
         v-html="compileMarkdown(page.fields.body)"></v-col>
-        <v-layout>
-          <v-spacer></v-spacer>
-          <a v-for="link in links" :key=link.name :href="link.fields.url" target = "_blank" class="social-link mr-2">
-            <v-icon color="#c1c1ff">mdi-{{link.fields.fontAwesomeIcon}}</v-icon>
-          </a>
-        </v-layout>
+        <Socials></Socials>
+
     </v-container>
   </div>
 </template>
@@ -25,9 +25,10 @@
 import marked from 'marked'
 import ContentfulAdapter from '../contentful.js'
 import Loading from '../components/Loading.vue'
+import Socials from '../components/Socials.vue'
 
  export default {
-    components:{ Loading },
+    components:{ Loading,Socials },
     data:function(){
       return {
         loading:false,
@@ -77,10 +78,6 @@ import Loading from '../components/Loading.vue'
   text-align:left;
   font-size: 20px;
   white-space: pre-wrap;
-}
-
-.social-link {
-  text-decoration: none;
 }
 
 @media screen and (max-width: 480px) {

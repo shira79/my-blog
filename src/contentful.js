@@ -18,6 +18,12 @@ class ContentfulAdapter {
     return this.client.getEntry('1FrXSeuQRry6jFapXaZZcv');
   }
 
+  getSocialLinks(){
+    return this.client.getEntries({
+      'content_type': 'socialLink'
+    })
+  }
+
   getBlogList(page=1){
     return this.client.getEntries({
       'content_type': 'blog',
