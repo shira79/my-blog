@@ -11,10 +11,12 @@
 <script>
 import ContentfulAdapter from '../contentful.js'
 import Loading from '../components/Loading.vue'
+import utils from '../Mixins/utils'
 
 export default {
   name: 'Top',
   components:{ Loading },
+  mixins: [utils],
   data: function(){
     return {
       greeting: null,
@@ -23,6 +25,7 @@ export default {
   },
   created :function(){
     this.setData();
+    this.setTitleDesc('Top','HELLO, MY FRIEND.')
   },
   methods:{
     setData(){

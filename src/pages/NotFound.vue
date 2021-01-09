@@ -7,6 +7,17 @@
   </div>
 </template>
 
+<script>
+import utils from '../Mixins/utils'
+
+export default {
+  mixins: [utils],
+  created :function(){
+    this.setTitleDesc('404','説明文')
+  },
+}
+</script>
+
 <style scope>
 
 .emoji {
