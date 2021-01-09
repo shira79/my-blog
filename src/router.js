@@ -15,6 +15,7 @@ const routes = [
     { path: '/', component: Top },
     { path: '/about', component: About },
     { path: '/blogs', component: BlogIndex },
+    ///blog/:idでgithubに貼っちゃったからこのまま残すw
     { path: '/blog/:id', component: BlogShow, props: true },
     { path: '/blogs/:id', component: BlogShow, props: true },
     { path: '/tag/:enName', component: TagShow, props: true },

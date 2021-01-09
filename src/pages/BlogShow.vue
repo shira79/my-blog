@@ -76,7 +76,7 @@ export default {
 .blog-show{
     text-align:left;
     /* width:70%; */
-    max-width:1100px;
+    max-width:870px;
 }
 
 </style>

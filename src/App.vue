@@ -35,15 +35,9 @@ export default {
   background-color: transparent !important;
 }
 
-
-.v-container {
-  max-width: 1100px;
-}
-
 .markdown-body {
   box-sizing: border-box;
   min-width: 200px;
-  max-width: 1100px;
   margin: 0 auto;
   padding: 45px;
 }
@@ -60,7 +54,7 @@ export default {
 }
 
 .markdown-body a {
-  color: #c1c1ff!important;
+  color: #42B2C1!important;
 }
 
 </style>

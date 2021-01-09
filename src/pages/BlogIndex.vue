@@ -21,17 +21,19 @@ export default {
       return {
         loading:false,
         items:[],
-        page:1,
         last_page:0,
+      }
+    },
+    computed: {
+      page: function () {
+        var default_page = 1;
+        return (this.$route.query.page === undefined ? default_page : Number(this.$route.query.page));
       }
     },
     methods:{
       setData(){
         var vm = this;
 
-        if(vm.$route.query.page !== undefined){
-          vm.page = Number(vm.$route.query.page);
-        }
         vm.loading = true;
         ContentfulAdapter.getBlogList(vm.page)
           .then(function (entry) {
