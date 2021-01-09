@@ -21,9 +21,11 @@ import Loading from '../components/Loading.vue'
 import Tags from '../components/Tags.vue'
 import PublishedAt from '../components/PublishedAt.vue'
 import Socials from '../components/Socials.vue'
+import utils from '../Mixins/utils'
 
 export default {
   components: { Loading, Tags, PublishedAt, Socials},
+  mixins: [utils],
   props:{ id: String },
   data:function(){
     return {
@@ -47,6 +49,7 @@ export default {
           vm.publishedAt =  entry.fields.publishedAt;
           vm.tags =  entry.fields.tags;
           vm.loading =  false;
+          vm.setTitleDesc(vm.title,'説明文')
         })
         .catch(function(){
           alert("記事が取得できませんでした");

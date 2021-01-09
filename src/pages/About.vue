@@ -26,9 +26,11 @@ import marked from 'marked'
 import ContentfulAdapter from '../contentful.js'
 import Loading from '../components/Loading.vue'
 import Socials from '../components/Socials.vue'
+import utils from '../Mixins/utils'
 
  export default {
     components:{ Loading,Socials },
+    mixins: [utils],
     data:function(){
       return {
         loading:false,
@@ -51,8 +53,7 @@ import Socials from '../components/Socials.vue'
       },
     },
     created :function(){
-      document.title = 'About' + ' | shlia34';
-      document.description = '説明文';
+      this.setTitleDesc('About','HELLO, MY FRIEND.')
       this.setData();
     },
   }

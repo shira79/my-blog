@@ -14,9 +14,11 @@ import ContentfulAdapter from '../contentful.js'
 import Loading from '../components/Loading.vue'
 import Blogs from '../components/Blogs.vue'
 import Pagination from '../components/Pagination.vue'
+import utils from '../Mixins/utils'
 
 export default {
     components:{ Loading, Blogs, Pagination },
+    mixins: [utils],
     data:function(){
       return {
         loading:false,
@@ -48,6 +50,7 @@ export default {
     },
     created :function(){
       this.setData();
+      this.setTitleDesc('ブログ一覧','説明文')
     },
     watch: {
       $route () {

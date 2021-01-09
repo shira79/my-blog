@@ -19,9 +19,11 @@ import Loading from '../components/Loading.vue'
 import Blogs from '../components/Blogs.vue'
 import Tags from '../components/Tags.vue'
 import Pagination from '../components/Pagination.vue'
+import utils from '../Mixins/utils'
 
 export default {
   components: { Loading, Blogs, Tags, Pagination},
+  mixins: [utils],
   props:{ enName: String },
   data:function(){
     return {
@@ -53,6 +55,7 @@ export default {
         ContentfulAdapter.getTagByEnName(vm.enName)
         .then(function (entry) {
             vm.tag = entry.items[0];
+            vm.setTitleDesc('#' + vm.tag.fields.jaName,'説明文')
 
             ContentfulAdapter.getBlogByTagId(vm.tag.sys.id,vm.page)
             .then(function (entry) {
