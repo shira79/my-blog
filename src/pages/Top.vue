@@ -63,7 +63,7 @@ export default {
 .greeting {
   font-size: 60px;
   font-weight: bold;
-  color:#c1c1ff;
+  color:#42B2C1;
 }
 
 .message {

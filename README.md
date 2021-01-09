@@ -1,7 +1,6 @@
 たまにみるポートフォリオサイトみたいなのを作ってみたい。
 いつかnuxt.jsで静的ページにしたい
 
-
 ## 使ってるの
 - vue.js
 - vue-router(SPA構築)
@@ -9,15 +8,3 @@
 - netlify（デプロイ）
 - contentful(CMS)
 -  marked(markdown描画)
-
-
-## インストールしたの
-
-- npm install -D vue-router
-- npm install -D vuetify
-- npm install -D marked
-- npm install -D contentful-cli(多分いらなかった)
-- npm install --save contentful
-- npm install @mdi/font -D
-- npm install -D github-markdown-css
-- npm install -D highlight.js

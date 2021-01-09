@@ -1,5 +1,5 @@
 <template>
-    <div class="tag">
+    <div class="tag" v-if="count!=0">
         <router-link class = "tag-link" :to="`/tag/${tag.fields.enName}`">
             #{{tag.fields.jaName}}<span v-if="showCount">({{count}})</span>
         </router-link>
@@ -13,7 +13,7 @@ export default {
     props: ['tag','showCount'],
     data:function(){
     return {
-        count:0,
+        count:null,
     }
   },
     methods:{
@@ -44,7 +44,7 @@ export default {
 }
 
 .tag-link:hover {
-  color: #c1c1ff!important;
+  color: #42B2C1!important;
   text-decoration: underline;
 }
 

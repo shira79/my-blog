@@ -33,9 +33,7 @@ import Socials from '../components/Socials.vue'
       return {
         loading:false,
         name :"",
-        ronaName:"",
         description:"",
-        links:[],
         pages:[],
       }
     },
@@ -46,18 +44,15 @@ import Socials from '../components/Socials.vue'
         ContentfulAdapter.getAboutMe()
           .then(function (entry) {
             vm.name        =  entry.fields.name;
-            vm.ronaName    =  entry.fields.romaName;
-            vm.description = vm.compileMarkdown(entry.fields.description);
-            vm.links       =  entry.fields.links;
+            vm.description = marked(entry.fields.description);
             vm.pages    =  entry.fields.pages;
             vm.loading =  false;
           })
       },
-      compileMarkdown(text){
-            return marked(text)
-        }
     },
     created :function(){
+      document.title = 'About' + ' | shlia34';
+      document.description = '説明文';
       this.setData();
     },
   }
