@@ -6,7 +6,8 @@ import About from './pages/About.vue'
 import BlogIndex from './pages/BlogIndex.vue'
 import BlogShow from './pages/BlogShow.vue'
 import TagShow from './pages/TagShow.vue'
-import Contact from './pages/Contact.vue'
+import Kojiki from './pages/Kojiki.vue'
+import Arigato from './pages/Arigato.vue'
 import NotFound from './pages/NotFound.vue'
 
 Vue.use(VueRouter);
@@ -19,7 +20,8 @@ const routes = [
     { path: '/blog/:id', component: BlogShow, props: true },
     { path: '/blogs/:id', component: BlogShow, props: true },
     { path: '/tag/:enName', component: TagShow, props: true },
-    { path: '/contact', component: Contact },
+    { path: '/kojiki', component: Kojiki },
+    { path: '/arigato', component: Arigato },
     { path: '*', component: NotFound }
 ];
 
