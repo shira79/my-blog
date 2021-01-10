@@ -5,7 +5,7 @@
             <v-spacer></v-spacer>
             <v-tab @click="pushAbout">about</v-tab>
             <v-tab @click="pushBlog">blog</v-tab>
-            <v-tab @click="pushContact">contact</v-tab>
+            <v-tab @click="pushKojiki">kojiki</v-tab>
         </v-layout>
     </v-container>
 </template>
@@ -33,8 +33,8 @@ export default {
         pushBlog(){
             this.$router.push('/blogs');
         },
-        pushContact(){
-            this.$router.push('/contact');
+        pushKojiki(){
+            this.$router.push('/kojiki');
         },
     },
 }
