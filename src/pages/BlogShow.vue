@@ -59,6 +59,7 @@ export default {
     created :function(){
       marked.setOptions({
         langPrefix: '',
+        breaks:true,
         highlight: function(code, lang) {
           return hljs.highlightAuto(code, [lang]).value
         }
