@@ -1,5 +1,5 @@
 <template>
-    <div class="tag" v-if="count!=0">
+    <div class="tag">
         <router-link class = "tag-link" :to="`/tag/${tag.fields.enName}`">
             #{{tag.fields.jaName}}<span v-if="showCount">({{count}})</span>
         </router-link>
